@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Encounter",
+  "type": "object",
+  "properties": {
+    "id": {"type": "string"},
+    "patient_id": {"type": "string"},
+    "datetime": {"type": "string", "format": "date-time"},
+    "chief_complaint": {"type": "string"},
+    "facts": {"type": "object"},
+    "differential": {"type": "array", "items": {"type": "object", "properties": {
+      "code": {"type": "string"},
+      "p": {"type": "number", "minimum": 0, "maximum": 1}
+    }}},
+    "guidelines": {"type": "array", "items": {"type": "string"}},
+    "outputs": {"type": "object"},
+    "safety": {"type": "object"}
+  },
+  "required": ["id","patient_id","datetime","chief_complaint"]
+}
